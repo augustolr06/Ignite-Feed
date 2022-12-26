@@ -1,0 +1,12 @@
+.header{
+    background-color: var(--gray-800);
+    display: flex;
+    justify-content: center;
+    /* align- items: center; não foi usado pois o alinhamento no centro foi feito seguindo o layout do Figma que diz que o conteúdo do header tem que ter 20px de padding. */
+    padding: 1.25rem 0;
+}
+
+.header img{
+    height: 2rem;
+}
+
