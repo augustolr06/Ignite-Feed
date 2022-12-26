@@ -8,7 +8,7 @@ total: 1120;
 */
 .wrapper{
     max-width: 70rem;
-    margin: 2 auto;
+    margin: 2rem auto;
     padding: 0 1rem;
 
     /* separando a sidebar dos posts: */
