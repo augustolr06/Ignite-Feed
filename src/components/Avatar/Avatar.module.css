@@ -1,0 +1,6 @@
+.avatar{
+    box-sizing: border-box;
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: 8px;
+}
