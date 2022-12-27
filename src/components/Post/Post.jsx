@@ -1,3 +1,4 @@
+import { Comment } from '../Comment/Comment'
 import styles from './Post.module.css'
 
 export function Post(){
@@ -16,7 +17,6 @@ export function Post(){
                 <time title='26 de Dezembro de 2022 às 17:00h' dateTime='2022-12-26 17:00:02'>Publicado há 1h</time>
 
             </header>
-
             <div className={styles.content}>
             <p>Fala galeraa 👋</p>
             <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</p>
@@ -27,12 +27,19 @@ export function Post(){
             <form className={styles.commentForm}>
                 <strong>Deixe seu feedback</strong>
                 <textarea placeholder='Deixe um comentário' />
-
                 <footer>
                     <button type="submit">Publicar</button>
                 </footer>
             </form>
 
+            <div className={styles.commentList}>
+                <Comment />
+                <Comment />
+                <Comment />
+            </div>
+
     </article>
     )
 }
+
+
