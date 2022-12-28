@@ -16,5 +16,10 @@ total: 1120;
     grid-template-columns: 256px 1fr;
     gap: 2rem; /* 2*16 = 32 de espaço entre eles */
     align-items: flex-start; /* isso faz com que ambos estejam alinhados com o topo da tela, para que a sidebar não tente ficar do mesmo tamanho da main */
+}
 
+@media (max-width: 768px) {
+    .wrapper{
+        grid-template-columns: 1fr;
+    }
 }
