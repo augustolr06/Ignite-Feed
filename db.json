@@ -1,0 +1,48 @@
+{
+    "posts" : [
+        {
+            "id": 1,
+            "author": {
+                "avatar_url": "https://github.com/augustolr06.png",
+                "name": "Augusto Lázaro",
+                "role": "Front-end Developer"
+            },
+            "publishedAt": "2022-12-27T10:18:56.625Z",
+            "content": [
+                {"type": "paragraph", "content": "Fala galeraa 👋"},
+                {"type": "paragraph", "content": "Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀"},
+                {"type": "link", "content":  " 👉 #novoprojeto #nlw #rocketseat"}
+            ]
+        },
+        {
+            "id": 2,
+            "author": {
+                "avatar_url": "https://images.unsplash.com/photo-1618641986557-1ecd230959aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+                "name": "Davi Ferreira",
+                "role": "UX Designer"
+            },
+            "publishedAt": "2022-12-26T17:00:26.625Z",
+            "content": [
+            {"type": "paragraph", "content": "Bom dia!"},
+            {"type": "paragraph", "content": "Bora iniciar mais um design!"},
+            {"type": "link", "content": "👉 #K-Shop #novoprojeto"}
+            
+            ]
+        }
+    ],
+    
+    "users" : [
+        {
+            "id": 1,
+            "name": "Augusto Lázaro",
+            "age": 24,
+            "role": "front-end Developer"
+        },
+        {
+            "id": 2,
+            "name": "Davi Ferreira",
+            "age": 18,
+            "role": "UX Designer"
+        }
+    ]
+}
