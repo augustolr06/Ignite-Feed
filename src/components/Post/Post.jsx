@@ -1,7 +1,7 @@
-
 import { format, formatDistanceToNow } from 'date-fns'
-
 import { ptBR } from 'date-fns/locale'
+import { Triangle } from 'phosphor-react'
+import { useState } from 'react'
 
 import { Avatar } from '../Avatar/Avatar'
 import { Comment } from '../Comment/Comment'
@@ -16,7 +16,23 @@ export function Post({ author, publishedAt, content }){
     const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
         locale: ptBR,
         addSuffix: true
-    })
+    });
+
+    const [comments, setComments] = useState([]);
+
+    const [newCommentText, setNewCommentText] = useState('');
+
+    function handleCreateNewComment(){
+        event.preventDefault();
+        
+        setComments(prevState => [...prevState, newCommentText]);
+
+        setNewCommentText('');
+    }
+
+    function handleNewCommentChange(){
+        setNewCommentText(event.target.value);
+    }
 
     return(
         <article className={styles.post}>
@@ -44,22 +60,32 @@ export function Post({ author, publishedAt, content }){
                             return <p>{line.content}</p>
                         } 
                         else if (line.type === 'link') {
-                        return <p> <a href=""> {line.content} </a> </p>
+                        return <p className={styles.links}> <a href=""> {line.content} </a> </p> // a className para esse elemento serve para aplicar o estilo display: inline, fazendo com que cada hashtag possa ficar em um link separado e continuar todas na mesma linha.
                     }
                     })
                 }
             </div>
 
-            <form className={styles.commentForm}>
+            <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
                 <strong>Deixe seu feedback</strong>
-                <textarea placeholder='Deixe um comentário' />
+
+                <textarea 
+                name='comment'
+                onChange={handleNewCommentChange}
+                value={newCommentText}
+                placeholder='Deixe um comentário' />
+
                 <footer>
                     <button type="submit">Publicar</button>
                 </footer>
             </form>
 
             <div className={styles.commentList}>
-                <Comment />
+                {
+                    comments.map(comment => {
+                        return <Comment content={comment} />
+                    })
+                }
             </div>
 
     </article>
