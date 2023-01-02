@@ -57,7 +57,9 @@
     color: var(--green-500);
     text-decoration: none;
 }
-
+.content .links{
+    display: inline;
+}
 .content p a:hover{
     color: var(--green-300);
 }
