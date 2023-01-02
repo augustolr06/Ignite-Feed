@@ -11,7 +11,9 @@
             "content": [
                 {"type": "paragraph", "content": "Fala galeraa 👋"},
                 {"type": "paragraph", "content": "Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀"},
-                {"type": "link", "content":  " 👉 #novoprojeto #nlw #rocketseat"}
+                {"type": "link", "content":  " 👉 #novoprojeto"},
+                {"type": "link", "content":  "#nlw"},
+                {"type": "link", "content":  "#rocketseat"}
             ]
         },
         {
@@ -34,15 +36,24 @@
     "users" : [
         {
             "id": 1,
+            "avatar_url":"https://github.com/augustolr06.png",
             "name": "Augusto Lázaro",
             "age": 24,
             "role": "front-end Developer"
         },
         {
             "id": 2,
+            "avatar_url":"https://images.unsplash.com/photo-1618641986557-1ecd230959aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
             "name": "Davi Ferreira",
             "age": 18,
             "role": "UX Designer"
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "id_post": 1,
+            "content": "Boa sorte!"
         }
     ]
 }
