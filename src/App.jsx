@@ -50,7 +50,7 @@ export function App() {
   let fetchInit = false; // Isso resolve o problema do useEffect executando o fetch 2 vezes e duplicando o array de posts (a técnica de usar o array de dependencia do useEffect vazio não resolveu).
 
   useEffect( () => {
-    if(fetchInit === false){
+    if(fetchInit === false && posts.length===0){ 
       fetchInit = true;
       fetch("http://localhost:3000/posts")
       .then(res => res.json())
