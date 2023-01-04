@@ -42,6 +42,12 @@ export function Post({ author, publishedAt, content }){
         setComments(commentsWithoutDeletedOne);
     }
 
+    function handleNewCommentInvalid(){
+        event.target.setCustomValidity('Esse campo deve ser preenchido.')
+    }
+
+    const isNewCommentEmpty = newCommentText.length === 0;
+
     return(
         <article className={styles.post}>
             <header className={styles.header}>
@@ -81,10 +87,15 @@ export function Post({ author, publishedAt, content }){
                 name='comment'
                 onChange={handleNewCommentChange}
                 value={newCommentText}
-                placeholder='Deixe um comentário' />
+                required
+                onInvalid={handleNewCommentInvalid}
+                placeholder='Deixe um comentário' 
+                />
 
                 <footer>
-                    <button type="submit">Publicar</button>
+                    <button type="submit" disabled={isNewCommentEmpty}>
+                        Publicar
+                    </button>
                 </footer>
             </form>
 
