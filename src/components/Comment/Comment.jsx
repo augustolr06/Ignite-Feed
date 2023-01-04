@@ -1,13 +1,21 @@
 import {ThumbsUp, Trash} from "phosphor-react"
+import { useState } from "react"
 import { Avatar } from "../Avatar/Avatar"
 
 import styles from './Comment.module.css'
 
 export function Comment({content, onDeleteComment}){
 
+    const [applaudCount,setApplaudCount] = useState(0);
+    const novaFunção = () => console.log("olá")
+
     function handleDeleteComment(){
         console.log("Deletando comentário")
         onDeleteComment(content);
+    }
+
+    function handleAppaludComment(){
+        setApplaudCount(applaudCount + 1);
     }
 
     return(
@@ -36,8 +44,8 @@ export function Comment({content, onDeleteComment}){
                     <p>{content}</p>
                 </div>
 
-                <button className={styles.applaud} >
-                    <ThumbsUp size={20} />Aplaudir • 02
+                <button className={styles.applaud} onClick={handleAppaludComment} >
+                    <ThumbsUp size={20} />Aplaudir • {applaudCount}
                 </button>
             </div>
         </div>
