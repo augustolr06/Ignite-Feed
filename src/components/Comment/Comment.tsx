@@ -1,10 +1,18 @@
-import {ThumbsUp, Trash} from "phosphor-react"
+import React from "react";
 import { useState } from "react"
+
+import {ThumbsUp, Trash} from "phosphor-react"
 import { Avatar } from "../Avatar/Avatar"
 
 import styles from './Comment.module.css'
 
-export function Comment({content, onDeleteComment}){
+
+interface CommentProps{
+    content: string,
+    onDeleteComment: (comment: string) => void,
+}
+
+export function Comment({content, onDeleteComment}: CommentProps){
 
     const [applaudCount,setApplaudCount] = useState(0);
     
@@ -14,7 +22,10 @@ export function Comment({content, onDeleteComment}){
     }
 
     function handleAppaludComment(){
-        setApplaudCount(applaudCount + 1);
+
+        setApplaudCount( (previousState) => {
+            return previousState + 1;
+        });
     }
 
     return(

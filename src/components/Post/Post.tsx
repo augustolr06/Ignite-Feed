@@ -1,14 +1,32 @@
+import React, { useState, FormEvent, ChangeEvent, InvalidEvent } from 'react'
 import { format, formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
-import { Triangle } from 'phosphor-react'
-import { useState } from 'react'
 
+import { Triangle } from 'phosphor-react'
 import { Avatar } from '../Avatar/Avatar'
 import { Comment } from '../Comment/Comment'
 
 import styles from './Post.module.css'
 
-export function Post({ author, publishedAt, content }){
+interface Author {
+    avatar_url: string,
+    name: string,
+    role: string,
+}
+
+interface PostLine{
+    type: "paragraph" | "link",
+    content: string,
+}
+
+export interface PostsProps{
+    id: number,
+    author: Author,
+    publishedAt: Date,
+    content: PostLine[],
+}
+
+export function Post({ author, publishedAt, content }: PostsProps){
 
     const publishedDateFormated = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
         locale: ptBR,
@@ -18,11 +36,11 @@ export function Post({ author, publishedAt, content }){
         addSuffix: true
     });
 
-    const [comments, setComments] = useState([]);
+    const [comments, setComments] = useState<string[]>([]);
 
-    const [newCommentText, setNewCommentText] = useState('');
+    const [newCommentText, setNewCommentText] = useState<string>('');
 
-    function handleCreateNewComment(){
+    function handleCreateNewComment(event: FormEvent){
         event.preventDefault();
         
         setComments(prevState => [...prevState, newCommentText]);
@@ -30,11 +48,11 @@ export function Post({ author, publishedAt, content }){
         setNewCommentText('');
     }
 
-    function handleNewCommentChange(){
+    function handleNewCommentChange(event: ChangeEvent< HTMLTextAreaElement >){
         setNewCommentText(event.target.value);
     }
 
-    function deleteComment(commentToDelete){
+    function deleteComment(commentToDelete: string){
         const commentsWithoutDeletedOne = comments.filter( comment => {
             return comment !== commentToDelete;
         });
@@ -42,7 +60,7 @@ export function Post({ author, publishedAt, content }){
         setComments(commentsWithoutDeletedOne);
     }
 
-    function handleNewCommentInvalid(){
+    function handleNewCommentInvalid(event: InvalidEvent< HTMLTextAreaElement >){
         event.target.setCustomValidity('Esse campo deve ser preenchido.')
     }
 
@@ -74,7 +92,7 @@ export function Post({ author, publishedAt, content }){
                             return <p>{line.content}</p>
                         } 
                         else if (line.type === 'link') {
-                        return <p className={styles.links}> <a href=""> {line.content} </a> </p> // a className para esse elemento serve para aplicar o estilo display: inline, fazendo com que cada hashtag possa ficar em um link separado e continuar todas na mesma linha.
+                        return <p className={styles.links}> <a href="">{line.content}</a> </p> // a className styles.link serve para aplicar o estilo display: inline, fazendo com que cada hashtag possa ficar em um link separado e continuar todas na mesma linha.
                     }
                     })
                 }

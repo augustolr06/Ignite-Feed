@@ -1,3 +1,5 @@
+import React from "react"
+
 import {PencilLine} from "phosphor-react"
 import { Avatar } from "../Avatar/Avatar"
 
