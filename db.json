@@ -27,7 +27,8 @@
             "content": [
             {"type": "paragraph", "content": "Bom dia!"},
             {"type": "paragraph", "content": "Bora iniciar mais um design!"},
-            {"type": "link", "content": "👉 #K-Shop #novoprojeto"}
+            {"type": "link", "content": "👉 #K-Shop"},
+            {"type": "link", "content": "#novoprojeto"}
             
             ]
         }
